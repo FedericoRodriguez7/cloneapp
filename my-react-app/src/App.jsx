@@ -12,6 +12,7 @@ import PlacesFormPage from './pages/PlacesFormPage'
 import PlacePage from './pages/PlacePage'
 import BookingsPage from './pages/BookingsPage'
 import BookingPage from './pages/BookingPage'
+import { Toaster } from "react-hot-toast";
 
 
 axios.defaults.baseURL = "http://localhost:4000"
@@ -20,7 +21,9 @@ axios.defaults.withCredentials = true
 function App() {
   
   return (
+    
     <UserContextProvider>
+      <Toaster position="top-left" reverseOrder={false}/>
     <Routes>
       <Route path='/' element={<Layout />} >
         <Route index element={<IndexPage />} />

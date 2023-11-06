@@ -3,6 +3,7 @@ import {differenceInCalendarDays} from "date-fns"
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../UserContext";
+import toast from "react-hot-toast";
 
 export default function BookingWidget({place}) {
     const [checkIn, setCheckIn] = useState("");
@@ -33,6 +34,7 @@ let numberOfNights = 0;
             price:numberOfNights * place.price,
         });
         const bookingId = response.data._id;
+        toast.success("Add complete!");
         setRedirect(`/account/bookings/${bookingId}`);
 
         }
@@ -88,7 +90,7 @@ let numberOfNights = 0;
                     <span> ${numberOfNights * place.price}</span>
                 )}                
                 </button>
-
+                
         </div>
     )
 }

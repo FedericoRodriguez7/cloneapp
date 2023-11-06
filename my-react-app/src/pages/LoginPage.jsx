@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { UserContext } from "../UserContext";
 
 export default function LoginPage() {
@@ -13,10 +14,10 @@ export default function LoginPage() {
         try {
             const {data} = await axios.post("/login", {email,password},)
             setUser(data);
-            alert("login successful")
+            toast.success("Login successful!");
             setRedirect(true);
         } catch (e){
-            alert("login failed")
+            toast.success("Login failed!");
         }
         
     }
